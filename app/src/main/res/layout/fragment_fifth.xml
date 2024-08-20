@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FifthFragment">
+
+    <TextView
+        android:id="@+id/page5Txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Page 5"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="128dp"/>
+
+    <Button
+        android:id="@+id/page5Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Page 1"
+        android:layout_gravity="center"/>
+
+
+    <TextView
+        android:id="@+id/pageInfoTxt5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|bottom"
+        android:layout_marginBottom="64dp"
+        android:text="" />
+
+
+</FrameLayout>

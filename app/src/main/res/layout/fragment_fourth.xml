@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FourthFragment">
+
+    <TextView
+        android:id="@+id/page4Txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Page 4"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="128dp"/>
+
+    <Button
+        android:id="@+id/page4Button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Page 5"
+        android:layout_gravity="center"/>
+
+    <Button
+        android:id="@+id/page4Button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Page 3"
+        android:layout_gravity="center"
+        android:layout_marginTop="64.dp"/>
+
+    <TextView
+        android:id="@+id/pageInfoTxt4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|bottom"
+        android:layout_marginBottom="64dp"
+        android:text="" />
+
+</FrameLayout>
