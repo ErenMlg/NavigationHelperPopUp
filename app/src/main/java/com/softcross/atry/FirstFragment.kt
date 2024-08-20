@@ -34,12 +34,11 @@ class FirstFragment : Fragment() {
         var text = "Back routes: "
         val backRoutes = getRoutes()
         backRoutes.forEach { route ->
-            Log.e("Route", route.title)
             text += route.title
         }
         binding.pageInfoTxt1.text = text
         binding.pageInfoTxt1.setOnClickListener {
-            showDialogWithButtons(requireContext() ,backRoutes)
+            showDialogWithButtons(requireContext() ,backRoutes, findNavController())
         }
     }
 

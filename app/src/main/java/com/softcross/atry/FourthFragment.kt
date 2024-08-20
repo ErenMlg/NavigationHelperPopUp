@@ -40,7 +40,7 @@ class FourthFragment : Fragment() {
         }
         binding.pageInfoTxt4.text = text
         binding.pageInfoTxt4.setOnClickListener {
-            showDialogWithButtons(requireContext() ,backRoutes)
+            showDialogWithButtons(requireContext() ,backRoutes, findNavController())
         }
     }
 

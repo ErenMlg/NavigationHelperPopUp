@@ -36,7 +36,7 @@ class FifthFragment : Fragment() {
         }
         binding.pageInfoTxt5.text = text
         binding.pageInfoTxt5.setOnClickListener {
-            showDialogWithButtons(requireContext(), backRoutes)
+            showDialogWithButtons(requireContext(), backRoutes, findNavController())
         }
     }
 

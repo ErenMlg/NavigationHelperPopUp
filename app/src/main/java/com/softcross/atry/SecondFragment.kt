@@ -41,7 +41,7 @@ class SecondFragment : Fragment() {
         }
         binding.pageInfoTxt2.text = text
         binding.pageInfoTxt2.setOnClickListener {
-            showDialogWithButtons(requireContext() ,backRoutes)
+            showDialogWithButtons(requireContext() ,backRoutes, findNavController())
         }
     }
 

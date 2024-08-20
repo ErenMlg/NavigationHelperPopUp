@@ -42,7 +42,7 @@ class ThirdFragment : Fragment() {
         }
         binding.pageInfoTxt3.text = text
         binding.pageInfoTxt3.setOnClickListener {
-            showDialogWithButtons(requireContext() ,backRoutes)
+            showDialogWithButtons(requireContext() ,backRoutes, findNavController())
         }
     }
 

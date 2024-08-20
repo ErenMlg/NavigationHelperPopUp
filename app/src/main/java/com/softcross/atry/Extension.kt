@@ -14,6 +14,10 @@ import android.widget.TextView
 import androidx.core.view.marginStart
 import androidx.core.view.setPadding
 import androidx.fragment.app.Fragment
+import androidx.navigation.NavController
+import androidx.navigation.NavOptions
+import androidx.navigation.Navigation
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
@@ -31,15 +35,13 @@ fun Fragment.getRoutes(): List<NavHelperItem> {
 fun List<Int>.formatRoutes(): List<NavHelperItem> {
     val list = mutableListOf<NavHelperItem>()
     this.forEach { route ->
-        println(route)
-        println(R.id.firstFragment.toString())
         when (route) {
             R.id.firstFragment -> list.add(
                 NavHelperItem(
                     route,
                     "First",
                     R.drawable.baseline_looks_one_24,
-                    0
+                    R.id.firstFragment
                 )
             )
 
@@ -48,7 +50,7 @@ fun List<Int>.formatRoutes(): List<NavHelperItem> {
                     route,
                     "Second",
                     R.drawable.baseline_looks_two_24,
-                    0
+                    R.id.secondFragment
                 )
             )
 
@@ -57,7 +59,7 @@ fun List<Int>.formatRoutes(): List<NavHelperItem> {
                     route,
                     "Third",
                     R.drawable.baseline_looks_3_24,
-                    0
+                    R.id.thirdFragment
                 )
             )
 
@@ -66,7 +68,7 @@ fun List<Int>.formatRoutes(): List<NavHelperItem> {
                     route,
                     "Fourth",
                     R.drawable.baseline_looks_4_24,
-                    1
+                    R.id.fourthFragment
                 )
             )
             R.id.fifthFragment ->{
@@ -75,7 +77,7 @@ fun List<Int>.formatRoutes(): List<NavHelperItem> {
                         route,
                         "Fifth",
                         R.drawable.baseline_looks_5_24,
-                        1
+                        R.id.fifthFragment
                     )
                 )
                 list.add(
@@ -83,7 +85,7 @@ fun List<Int>.formatRoutes(): List<NavHelperItem> {
                         route,
                         "6",
                         R.drawable.baseline_looks_5_24,
-                        1
+                        R.id.firstFragment
                     )
                 )
                 list.add(
@@ -91,7 +93,7 @@ fun List<Int>.formatRoutes(): List<NavHelperItem> {
                         route,
                         "7",
                         R.drawable.baseline_looks_5_24,
-                        1
+                        R.id.firstFragment
                     )
                 )
                 list.add(
@@ -99,7 +101,7 @@ fun List<Int>.formatRoutes(): List<NavHelperItem> {
                         route,
                         "8",
                         R.drawable.baseline_looks_5_24,
-                        1
+                        R.id.firstFragment
                     )
                 )
             }
@@ -109,7 +111,7 @@ fun List<Int>.formatRoutes(): List<NavHelperItem> {
     return list
 }
 
-fun showDialogWithButtons(context: Context, buttonLabels: List<NavHelperItem>) {
+fun showDialogWithButtons(context: Context, buttonLabels: List<NavHelperItem>, navController: NavController) {
     val dialog = Dialog(context)
     dialog.setContentView(R.layout.dialog_custom)
     val buttonContainer = dialog.findViewById<LinearLayout>(R.id.buttonContainer)
@@ -143,7 +145,9 @@ fun showDialogWithButtons(context: Context, buttonLabels: List<NavHelperItem>) {
                 setImageDrawable(context.resources.getDrawable(item.icon, null))
                 setPadding(8)
                 setOnClickListener {
-                    // Handle button click
+                    navController.popBackStack(item.destinationID, true)
+                    navController.navigate(item.destinationID)
+                    dialog.dismiss()
                 }
                 id = View.generateViewId()
                 layoutParams = RelativeLayout.LayoutParams(
@@ -220,7 +224,6 @@ fun showDialogWithButtons(context: Context, buttonLabels: List<NavHelperItem>) {
             if ((itemIndex != buttonLabels.size-1-(3*index)) && (itemIndex % 2 != 0 || itemIndex == 0)){
                 innerLinearLayout.addView(arrowView)
             }
-            println("Index: $index, ItemIndex: $itemIndex, item: $item, item name: ${item.title}, rowItems.size: ${rowItems.size}, rowItems: $rowItems, buttonLabels.size: ${buttonLabels.size}")
             if (itemIndex % 2 == 0 && itemIndex != 0 && index != ((buttonLabels.size-1)/3) ){
                 innerLinearLayout.addView(bottomArrowView)
             }
