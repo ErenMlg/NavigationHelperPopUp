@@ -146,7 +146,6 @@ fun showDialogWithButtons(context: Context, buttonLabels: List<NavHelperItem>, n
                 setPadding(8)
                 setOnClickListener {
                     navController.popBackStack(item.destinationID, true)
-                    navController.navigate(item.destinationID)
                     dialog.dismiss()
                 }
                 id = View.generateViewId()
